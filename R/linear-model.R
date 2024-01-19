@@ -76,20 +76,22 @@ create_lm <- function(X,Y, level = 0.95) {
   # To begin, confirm that the parameters contain reasonable data. #
   ##################################################################
 
-  X %>%
-    assert_is_not_null %>%
-    assert_is_numeric
+  ### DEPRECATED ADD NEW ASSERTION MECHANISM
 
-  Y %>%
-    assert_is_not_null %>%
-    assert_is_numeric
-
-  assert_are_same_length(X,Y)
-
-  level %>%
-    assert_is_not_null %>%
-    assert_is_numeric %>%
-    assert_any_are_in_range(lower = 0, upper = 1)
+  # X %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric
+  #
+  # Y %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric
+  #
+  # assert_are_same_length(X,Y)
+  #
+  # level %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric %>%
+  #   assert_any_are_in_range(lower = 0, upper = 1)
 
   #########################################################################
   # Now that the inputs have been validated, proceed with the regression. #
@@ -140,7 +142,9 @@ plot_fit <- function(model) {
 #' @return A ggplot2 object containing a plot of the model predictions.
 plot_predictions <- function(predictions, se = FALSE) {
 
-  predictions %>% assert_is_data.frame()
+  ### DEPRECATED ADD NEW ASSERTION MECHANISM
+  # predictions %>% assert_is_data.frame()
+  ###
 
   gg_obj <- predictions %>%
     ggplot(aes(x=new_values)) +
@@ -185,14 +189,16 @@ compute_predictions <- function(model, new_data, level = 0.95) {
   # To begin, confirm that the parameters contain reasonable data. #
   ##################################################################
 
-  new_data %>%
-    assert_is_not_null %>%
-    assert_is_numeric
+  ### DEPRECATED ADD NEW ASSERTION MECHANISM
 
-  level %>%
-    assert_is_not_null %>%
-    assert_is_numeric %>%
-    assert_any_are_in_range(lower = 0, upper = 1)
+  # new_data %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric
+  #
+  # level %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric %>%
+  #   assert_any_are_in_range(lower = 0, upper = 1)
 
   #########################################################################
   # Now that the inputs have been validated, proceed with the predictions #
@@ -242,20 +248,23 @@ polynomial_lm <- function(X, Y, order=2) {
   ##################################################################
   # To begin, confirm that the parameters contain reasonable data. #
   ##################################################################
-  X %>%
-    assert_is_not_null %>%
-    assert_is_numeric
 
-  Y %>%
-    assert_is_not_null %>%
-    assert_is_numeric
+  ### DEPRECATED ADD NEW ASSERTION MECHANISM
 
-  assert_are_same_length(X,Y)
-
-  order %>%
-    assert_is_not_null %>%
-    assert_is_numeric %>%
-    is_greater_than_or_equal_to(2)
+  # X %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric
+  #
+  # Y %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric
+  #
+  # assert_are_same_length(X,Y)
+  #
+  # order %>%
+  #   assert_is_not_null %>%
+  #   assert_is_numeric %>%
+  #   is_greater_than_or_equal_to(2)
 
   #########################################################################
   # Now that the inputs have been validated, proceed with the regression. #
